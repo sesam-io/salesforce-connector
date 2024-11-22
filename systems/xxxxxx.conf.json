@@ -2,7 +2,7 @@
   "_id": "xxxxxx",
   "type": "system:rest",
   "headers": {
-    "Authorization": "Bearer 00Dd1000003Cufp!AQEAQE1Xn8q1hbJjKAhQaJqZZH6fSa17LXnYjLyQ__Eed6Q_sn3_SzdGspff85oDuwhfDQIBiPyyprKTdnKne0ekS7UqaYPK"
+    "Authorization": "Bearer $SECRET(oauth_access_token)"
   },
   "operations": {
     "account-list": {
