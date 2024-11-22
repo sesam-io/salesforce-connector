@@ -2,7 +2,7 @@
   "_id": "xxxxxx",
   "type": "system:rest",
   "headers": {
-    "Authorization": "Bearer 00Dd1000003Cufp!AQEAQAs4sTGz9pkAxj3SqeH4.P_RBIUtoS4t275FttIfVyQDb7h6OJhPpC4gdLqT5bR9AuKSlKcOEKolGHCuuRBw0QoDO4rB"
+    "Authorization": "Bearer $SECRET(oauth_access_token)"
   },
   "operations": {
     "account-insert": {
