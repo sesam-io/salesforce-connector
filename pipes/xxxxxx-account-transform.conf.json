@@ -1,0 +1,23 @@
+{
+  "_id": "xxxxxx-account-transform",
+  "type": "pipe",
+  "source": {
+    "type": "dataset",
+    "dataset": "xxxxxx-account-collect"
+  },
+  "transform": {
+    "type": "dtl",
+    "rules": {
+      "default": [
+        ["copy", "*"],
+        ["add", "$based_on_properties",
+          ["list", "Id", "Name"]
+        ],
+        ["add", "$based_on",
+          ["dict", "Id", "_S.Id", "Name", "_S.Name"]
+        ]
+      ]
+    }
+  },
+  "namespaced_identifiers": false
+}

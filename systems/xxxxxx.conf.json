@@ -1,0 +1,26 @@
+{
+  "_id": "xxxxxx",
+  "type": "system:rest",
+  "headers": {
+    "Authorization": "Bearer 00Dd1000003Cufp!AQEAQE1Xn8q1hbJjKAhQaJqZZH6fSa17LXnYjLyQ__Eed6Q_sn3_SzdGspff85oDuwhfDQIBiPyyprKTdnKne0ekS7UqaYPK"
+  },
+  "operations": {
+    "account-list": {
+      "id_expression": "{{ Id }}",
+      "method": "GET",
+      "payload_property": "records",
+      "url": "query?q=SELECT fields(all) FROM Account LIMIT 200"
+    },
+    "account-lookup": {
+      "method": "GET",
+      "payload_property": "records",
+      "url": "query?q=SELECT fields(all) FROM Account WHERE Id= '{{ entity.Id }}' LIMIT 200"
+    },
+    "account-update": {
+      "method": "PATCH",
+      "url": "sobjects/Account/{{ entity.Id }}"
+    }
+  },
+  "url_pattern": "$ENV(instance_url)/services/data/$ENV(version)/%s",
+  "verify_ssl": true
+}

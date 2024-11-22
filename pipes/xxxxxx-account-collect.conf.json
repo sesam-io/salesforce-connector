@@ -1,0 +1,20 @@
+{
+  "_id": "xxxxxx-account-collect",
+  "type": "pipe",
+  "source": {
+    "type": "dataset",
+    "dataset": "xxxxxx-account-all"
+  },
+  "transform": {
+    "type": "dtl",
+    "rules": {
+      "default": [
+        ["copy", "*"],
+        ["add", "$last-modified",
+          ["datetime-parse", "%Y-%m-%dT%H:%M:%S.%f%z", "_S.LastModifiedDate"]
+        ]
+      ]
+    }
+  },
+  "namespaced_identifiers": false
+}

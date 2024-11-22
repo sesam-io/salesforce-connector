@@ -1,0 +1,35 @@
+{
+  "_id": "xxxxxx-account-share",
+  "type": "pipe",
+  "source": {
+    "type": "dataset",
+    "dataset": "xxxxxx-account-transform"
+  },
+  "sink": {
+    "set_initial_offset": "onload"
+  },
+  "transform": [{
+    "type": "template",
+    "properties": {
+      "operation_delete": "account-delete",
+      "operation_insert": "account-insert",
+      "operation_lookup": "account-lookup",
+      "operation_update": "account-update",
+      "primary_key": "Id",
+      "rest_system": "xxxxxx",
+      "rewrite_rules_payload": {
+        "rewrite_update_payload": [
+          ["merge", "_S.$source"],
+          ["remove",
+            ["list", "$*", "Id", "LastModifiedDate", "JigsawCompanyId", "LastReferencedDate", "BillingAddress", "CreatedById", "PhotoUrl", "MasterRecordId", "IsDeleted", "LastViewedDate", "SystemModstamp", "ShippingAddress", "CreatedDate", "LastActivityDate", "LastModifiedById"]
+          ],
+          ["add", "$payload", "_T."]
+        ]
+      },
+      "share_dataset": "xxxxxx-account-share"
+    },
+    "template": "transform-share-rest"
+  }],
+  "batch_size": 1,
+  "namespaced_identifiers": false
+}
