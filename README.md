@@ -1,1 +1,2 @@
-# salesforce-connector
+# Tripletex
+A Sesam connector for Tripletex
