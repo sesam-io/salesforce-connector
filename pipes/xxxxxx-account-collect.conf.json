@@ -5,7 +5,16 @@
     "type": "dataset",
     "dataset": "xxxxxx-account-all"
   },
-  "transform": {
+  "transform": [{
+    "type": "template",
+    "properties": {
+      "operation_lookup_delete": "account-lookup",
+      "primary_key": "Id",
+      "rest_system": "xxxxxx",
+      "share_dataset": "xxxxxx-account-share"
+    },
+    "template": "transform-collect-rest"
+  }, {
     "type": "dtl",
     "rules": {
       "default": [
@@ -15,6 +24,6 @@
         ]
       ]
     }
-  },
+  }],
   "namespaced_identifiers": false
 }

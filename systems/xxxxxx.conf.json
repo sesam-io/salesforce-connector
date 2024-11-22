@@ -2,9 +2,13 @@
   "_id": "xxxxxx",
   "type": "system:rest",
   "headers": {
-    "Authorization": "Bearer 00Dd1000003Cufp!AQEAQE1Xn8q1hbJjKAhQaJqZZH6fSa17LXnYjLyQ__Eed6Q_sn3_SzdGspff85oDuwhfDQIBiPyyprKTdnKne0ekS7UqaYPK"
+    "Authorization": "Bearer 00Dd1000003Cufp!AQEAQAs4sTGz9pkAxj3SqeH4.P_RBIUtoS4t275FttIfVyQDb7h6OJhPpC4gdLqT5bR9AuKSlKcOEKolGHCuuRBw0QoDO4rB"
   },
   "operations": {
+    "account-insert": {
+      "method": "POST",
+      "url": "sobjects/Account/"
+    },
     "account-list": {
       "id_expression": "{{ Id }}",
       "method": "GET",
