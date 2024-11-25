@@ -1,0 +1,38 @@
+{
+  "_id": "{{@ system @}}",
+  "headers": {
+    "Authorization": "Bearer $SECRET(oauth_access_token)"
+  },
+  "operations": {
+    "account-insert": {
+      "method": "POST",
+      "url": "sobjects/Account/"
+    },
+    "account-list": {
+      "id_expression": "{{ Id }}",
+      "method": "GET",
+      "next_page_link": "query?q=SELECT fields(all) FROM Account WHERE LastModifiedDate >= {{ since }} LIMIT {{ page_size }} OFFSET {{ (page|int+1)*page_size }}",
+      "next_page_termination_strategy": [
+        "empty-result",
+        "same-response",
+        "same-next-page-link"
+      ],
+      "page_size": 100,
+      "payload_property": "records",
+      "url": "query?q=SELECT fields(all) FROM Account WHERE LastModifiedDate >= {{ since }} LIMIT {{ page_size }} OFFSET 0"
+    },
+    "account-lookup": {
+      "method": "GET",
+      "page_size": 1,
+      "payload_property": "records",
+      "url": "query?q=SELECT fields(all) FROM Account WHERE Id= '{{ entity.Id }}' LIMIT {{ page_size }}"
+    },
+    "account-update": {
+      "method": "PATCH",
+      "url": "sobjects/Account/{{ entity.Id }}"
+    }
+  },
+  "type": "system:rest",
+  "url_pattern": "{{@ instance_url @}}/services/data/{{@ version @}}/%s",
+  "verify_ssl": true
+}

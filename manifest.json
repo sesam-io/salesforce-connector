@@ -1,0 +1,17 @@
+{
+  "additional_parameters": {
+    "instance_url": {},
+    "version": {}
+  },
+  "auth": "oauth2",
+  "datatypes": {
+    "account": {
+      "template": "templates/account.json"
+    }
+  },
+  "oauth2": {
+    "scopes": [],
+    "token_url": "https://login.salesforce.com/services/oauth2/token"
+  },
+  "system-template": "templates/system.json"
+}
